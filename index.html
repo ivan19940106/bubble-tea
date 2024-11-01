@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./main.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.7.16/vue.min.js"
+            integrity="sha512-Wx8niGbPNCD87mSuF0sBRytwW2+2ZFr7HwVDF8krCb3egstCc4oQfig+/cfg2OHd82KcUlOYxlSDAqdHqK5TCw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+            integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./main.js"></script>
+
+    <title>Vue.js 櫻花珍珠手搖杯 (Vue.js bubble tea)</title>
+</head>
+<body>
+<div id="app">
+    <div class="container">
+        <h1 class="title">為自己調一杯珍奶</h1>
+        <h2 class="subtitle">Vue.js 櫻花珍珠手搖杯</h2>
+        <span class="insurance"><small>本產品已投保三千元產品責任險</small></span>
+        <label class="order" for="switch">點餐
+            <!-- <input type="checkbox" v-model="editing"> -->
+        </label>
+        <label class="switch">
+            <input type="checkbox" v-model="editing">
+            <span class="slider round"></span>
+        </label>
+        <div class="product-container" v-for="(milkTea, mid) in milkTeas">
+            <div class="feature">{{features[mid]}}</div>
+            <div class="beverage">
+                <div class="handle" :class="{top: milkTea.type == 'thermos', straw: milkTea.type == 'paper-cup'}"></div>
+                <div class="cup" :class="[milkTea.type]">
+                    <div class="ingradients"
+                         :class="{'ingradients-radius': milkTea.type == 'coffee-cup', 'thermos-height': milkTea.type == 'thermos', 'paper-cup-height': milkTea.type == 'paper-cup', 'coffee-cup-height': milkTea.type == 'coffee-cup', 'mug-height': milkTea.type == 'mug'}">
+                        <div class='box'>
+                            <div class='wave -one'></div>
+                            <div class='wave -two'></div>
+                            <div class='wave -three'></div>
+                        </div>
+                        <div class="foam" :style="{height: milkTea.foam + 'px'}"></div>
+                        <div class="milk" :style="{height: milkTea.milk + 'px'}"></div>
+                        <div class="green-tea" :style="{height: milkTea['green-tea'] + 'px'}"></div>
+                        <div class="black-tea" :style="{height: milkTea['black-tea'] + 'px'}"></div>
+                        <div class="bubbles" v-for="bubble in milkTea.bubbles"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="controls">{{milkTea.name}}
+                <div class="editing" :class="{hideOrder: editing != true}">
+                    <h2 class="controls-subtitle">杯型選擇</h2>
+                    <select name="cupTypes" v-model="milkTea.type">
+                        <option v-for="(cupType, tid) in cupTypes" :value="cupType">{{cupTypesChinese[tid]}}</option>
+                    </select>
+                    <h2 class="controls-subtitle">成分調整</h2>
+                    <label for="">奶蓋<br>
+                        <input type="range" v-model="milkTea.foam" min="0" max="50">
+                    </label><br>
+                    <label for="">牛奶<br>
+                        <input type="range" v-model="milkTea.milk" min="0" max="50">
+                    </label><br>
+                    <label for="">綠茶<br>
+                        <input type="range" v-model="milkTea['green-tea']" min="0" max="50">
+                    </label><br>
+                    <label for="">紅茶<br>
+                        <input type="range" v-model="milkTea['black-tea']" min="0" max="50">
+                    </label><br>
+                    <label for="">珍珠<br>
+                        <input type="range" v-model.number="milkTea.bubbles" min="0" max="20">
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

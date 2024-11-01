@@ -1,0 +1,356 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    background-color: #698474;
+    color: #e5e4cc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+select {
+    padding: 4px;
+    border-radius: 4px;
+    background-color: #eee;
+}
+
+.container {
+    width: 70vw;
+    margin: 0 auto;
+}
+
+h1, h2 {
+    text-align: center;
+    margin: 10px;
+}
+
+.insurance {
+    font-size: 12px;
+}
+
+.order {
+    font-size: 16px;
+}
+
+.hideOrder {
+    display: none;
+}
+
+h1 {
+    margin-top: 50px;
+}
+
+.product-container {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 0px;
+    padding: 10px;
+}
+
+.product-container:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.feature, .beverage, .controls {
+    flex: 1;
+    text-align: center;
+}
+
+.beverage {
+    position: relative;
+    margin-top: 30px;
+}
+
+.cup {
+    width: 60px;
+    height: 100px;
+    margin: 0 auto;
+    /* overflow: hidden; */
+    border: 4px solid #fff;
+    border-top: none;
+    padding-top: 5px;
+    position: relative;
+}
+
+.ingradients {
+    /* display: flex;
+    flex-direction: column-reverse; */
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background-color: #801a08;
+    overflow: hidden;
+    font-size: 0;
+}
+
+.ingradients-radius {
+    border-radius: 0px 0px 30px 30px;
+}
+
+.thermos-height {
+    max-height: 80px;
+}
+
+.paper-cup-height {
+    max-height: 85px;
+}
+
+.coffee-cup-height {
+    max-height: 45px;
+}
+
+.mug-height {
+    max-height: 65px;
+}
+
+.bubbles {
+    width: 10px;
+    height: 10px;
+    background-color: #fbc1bc;
+    border-radius: 5px;
+    display: inline-block;
+    /* border: 0.5px solid #594a4e; */
+}
+
+.black-tea {
+    width: 100%;
+    height: 0px;
+    background-color: #801a08;
+}
+
+.green-tea {
+    width: 100%;
+    height: 20px;
+    background-color: #9dab86;
+}
+
+.milk {
+    width: 100%;
+    height: 20px;
+    background-color: #f7d8bb;
+}
+
+.foam {
+    width: 100%;
+    height: 15px;
+    background-color: #eee;
+}
+
+/* waves */
+.box {
+    width: 100%;
+    height: 10px;
+    position: absolute;
+    top: 0px;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.wave {
+    position: absolute;
+    bottom: 47%;
+    left: -147%;
+    background: #698474;
+    width: 222px;
+    height: 222px;
+    transform-origin: 50% 48%;
+    border-radius: 43%;
+    animation: drift 5000ms infinite linear;
+}
+
+.wave.-three {
+    animation: drift 7000ms infinite linear;
+}
+
+.wave.-two {
+    animation: drift 9000ms infinite linear;
+    opacity: .1;
+    background: #f8b195;
+}
+
+@keyframes drift {
+    from {
+        transform: rotate(0deg);
+    }
+    from {
+        transform: rotate(360deg);
+    }
+}
+
+.controls-subtitle {
+    font-size: 12px;
+}
+
+.controls {
+    font-size: 16px;
+}
+
+/* cup types */
+.thermos {
+    border-top: 4px solid #fff;
+    border-radius: 2px;
+}
+
+.top {
+    border: 4px solid #fff;
+    width: 60px;
+    height: 20px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.top::after {
+    content: "";
+    display: block;
+    width: 10px;
+    height: 20px;
+    border: 2px solid #fff;
+    position: absolute;
+    left: 60%;
+    top: 40%;
+    border-radius: 4px;
+}
+
+.paper-cup {
+    border-radius: 2px;
+    border-top: 8px solid #fff;
+}
+
+.straw {
+    border: 3px solid #fff;
+    width: 6px;
+    height: 120px;
+    transform: rotate(15deg);
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+
+}
+
+.coffee-cup {
+    border-radius: 0px 0px 30px 30px;
+    height: 50px;
+}
+
+.coffee-cup::after {
+    content: "";
+    display: block;
+    border: 4px solid #fff;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top: 5px;
+    left: 100%;
+    border-radius: 0px 10px 10px 0px;
+}
+
+.mug {
+    height: 70px;
+}
+
+.mug::after {
+    content: "";
+    display: block;
+    border: 4px solid #fff;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top: 10px;
+    left: 100%;
+    border-radius: 0px 12px 12px 0px;
+}
+
+/* switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 38px;
+    height: 22px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #f7d8bb;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #f7d8bb;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(16px);
+    -ms-transform: translateX(16px);
+    transform: translateX(16px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 22px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+    .product-container {
+        flex-direction: column;
+    }
+
+    .product-container:hover {
+        background-color: #698474;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 16px;
+    }
+
+    .feature {
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+
+    .controls {
+        margin-top: 30px;
+    }
+}
